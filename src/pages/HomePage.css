@@ -1,0 +1,30 @@
+#fundraiser-list {
+    display: grid;
+  
+    
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  
+    gap: 20px;
+    padding: 20px;
+  
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e9eff5);
+  }
+
+  .badge {
+    display: inline-block;
+    margin: 0 12px 12px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+  }
+  
+  
