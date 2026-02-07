@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    justify-content: center; /* ⬅️ center horizontally */
+    align-items: center;
+    gap: 24px;
+  
+    padding: 16px 24px;
+  
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  nav a:hover {
+    color: #4f46e5;
+  }
+  

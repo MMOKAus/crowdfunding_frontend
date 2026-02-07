@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../django/crowdfunding_back_end"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "crowdfunding_back_end"
+	}
+}

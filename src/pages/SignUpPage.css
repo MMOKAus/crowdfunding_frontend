@@ -1,0 +1,122 @@
+/* Page background */
+.auth-page {
+    min-height: calc(100vh - 64px); /* leaves room for navbar */
+    display: grid;
+    place-items: center;
+    padding: 40px 16px;
+    background: linear-gradient(180deg, #f6f9fc 0%, #eef3f8 100%);
+  }
+  
+  /* Card */
+  .auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Title + subtitle */
+  .auth-title {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #111827;
+  }
+  
+  .auth-subtitle {
+    margin: 0 0 20px;
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+  
+  /* Form */
+  .auth-form {
+    display: grid;
+    gap: 14px;
+  }
+  
+  .auth-field {
+    display: grid;
+    gap: 6px;
+  }
+  
+  .auth-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .auth-input {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+  }
+  
+  .auth-input:focus {
+    border-color: rgba(79, 70, 229, 0.55);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  }
+  
+  /* Primary button */
+  .auth-button {
+    margin-top: 6px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  }
+  
+  .auth-button:hover {
+    filter: brightness(1.03);
+  }
+  
+  .auth-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Helper text + link */
+  .auth-footer {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .auth-footer a {
+    color: #4338ca;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error message */
+  .auth-error {
+    margin: 6px 0 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.08);
+    color: #991b1b;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    font-size: 0.9rem;
+  }
+  
+  /* Optional: tiny “hint” text under fields */
+  .auth-hint {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  

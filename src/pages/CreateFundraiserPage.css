@@ -1,0 +1,37 @@
+.create-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .create-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .create-form input,
+  .create-form textarea {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .checkbox-row {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+  }
+  
+  .error-box {
+    background: #ffe5e5;
+    padding: 12px;
+    border: 1px solid #ffb3b3;
+    margin: 12px 0;
+  }
+  
