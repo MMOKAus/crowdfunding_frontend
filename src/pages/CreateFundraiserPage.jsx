@@ -1,10 +1,25 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import postFundraiser from "../api/post-fundraiser";
+import { getToken } from "../utilities/auth";
 import "./CreateFundraiserPage.css";
 
 export default function CreateFundraiserPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const token = getToken();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login", {
+        replace: true,
+        state: { from: location.pathname },
+      });
+    }
+  }, [token, navigate, location.pathname]);
+
+  // While redirecting, render nothing (prevents seeing the form flash)
+  if (!token) return null;
 
   const [formData, setFormData] = useState({
     title: "",
@@ -32,15 +47,12 @@ export default function CreateFundraiserPage() {
     setIsSubmitting(true);
 
     try {
-      // Convert goal to a number (DRF will often reject strings)
       const payload = {
         ...formData,
         goal: Number(formData.goal),
       };
 
       const created = await postFundraiser(payload);
-
-      // Most DRF serializers return an `id`
       navigate(`/fundraisers/${created.id}`);
     } catch (err) {
       setError(err.message || "Something went wrong.");

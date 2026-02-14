@@ -22,4 +22,8 @@ export function getToken() {
   export function clearUser() {
     window.localStorage.removeItem("user");
   }
+  export function logout() {
+    clearToken();
+    clearUser();
+  }
   

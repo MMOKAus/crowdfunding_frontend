@@ -1,16 +1,118 @@
-# React + Vite
+🐾 PawFund
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PawFund is a crowdfunding platform designed to help animals receive urgent care when their owners are facing crisis.
+Users can create fundraisers, pledge support, and track progress toward funding goals.
 
-Currently, two official plugins are available:
+🌍 Live Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend:
+👉 https://your-frontend-url.com
 
-## React Compiler
+Backend API:
+👉 https://shecodes-production-app-a88e0902e533.herokuapp.com/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🎯 Target Audience
 
-## Expanding the ESLint configuration
+PawFund is designed for:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Pet owners facing financial hardship
+
+Animal rescue organisations
+
+Supporters who want to help animals in need
+
+🚀 Features
+👤 User Accounts
+
+Register
+
+Log in
+
+Token-based authentication
+
+Owner-only edit/delete permissions
+
+📢 Fundraisers
+
+Each fundraiser includes:
+
+Title
+
+Owner
+
+Description
+
+Image
+
+Target amount
+
+Open / Closed status
+
+Date created
+
+Total pledged tracker
+
+💸 Pledges
+
+Each pledge includes:
+
+Amount
+
+Supporter
+
+Anonymous option
+
+Optional comment
+
+🔐 Permissions
+
+Only the owner can edit/delete a fundraiser
+
+Only authenticated users can create fundraisers
+
+Only authenticated users can pledge
+
+🎨 UI / UX
+
+Responsive design
+
+Hero section with animated CTA
+
+Progress bar tracker
+
+Mobile hamburger menu
+
+Custom 404 page 
+
+🛠️ Tech Stack
+
+Frontend:
+
+React
+
+React Router
+
+Vite
+
+CSS (custom styling)
+
+Backend:
+
+Django
+
+Django Rest Framework
+
+Token Authentication
+
+Heroku deployment
+
+📸 Screenshots
+🏠 Homepage
+
+➕ Fundraiser Creation Page
+
+📝 Fundraiser Creation Form
+
+💬 Fundraiser with Pledges
+
+

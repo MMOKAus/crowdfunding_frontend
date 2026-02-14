@@ -1,17 +1,18 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import useFundraiser from "../hooks/use-fundraiser";
-import { getUser, getToken } from "../utilities/auth";
+import { getToken, getUser } from "../utilities/auth";
 import postPledge from "../api/post-pledge";
-import getFundraiser from "../api/get-fundraiser";
+import deleteFundraiser from "../api/delete-fundraiser";
 
 function FundraiserPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { fundraiser, isLoading, error } = useFundraiser(id);
 
-  const user = getUser();
   const token = getToken();
+  const user = getUser();
 
   const [pledgeAmount, setPledgeAmount] = useState("");
   const [pledgeComment, setPledgeComment] = useState("");
@@ -20,10 +21,9 @@ function FundraiserPage() {
   const [pledgeError, setPledgeError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // We need a way to refresh pledges after posting.
-  // Since your hook doesn't expose setFundraiser, we’ll do a simple page refresh fallback OR upgrade the hook next.
-  // Here’s the upgrade-free approach: refetch and reload using window.location (simple + works).
-  // If you want a “proper” refresh without reload, next step we’ll update the hook to expose a refetch().
+  const [deleteError, setDeleteError] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
   async function handlePledgeSubmit(e) {
     e.preventDefault();
     setPledgeError("");
@@ -35,16 +35,20 @@ function FundraiserPage() {
 
     setIsSubmitting(true);
     try {
-      await postPledge({
+      const payload = {
         amount: Number(pledgeAmount),
-        comment: pledgeComment,
         anonymous: pledgeAnonymous,
-        fundraiser: fundraiser.id, // or Number(id)
-      });
+        fundraiser: fundraiser.id,
+  };
 
-      // simple, reliable refresh
-      // eslint-disable-next-line no-restricted-globals
-      location.reload();
+  if (pledgeComment.trim() !== "") {
+    payload.comment = pledgeComment.trim();
+  }
+
+  await postPledge(payload);
+
+  location.reload();
+
     } catch (err) {
       setPledgeError(err.message || "Could not create pledge.");
     } finally {
@@ -52,14 +56,49 @@ function FundraiserPage() {
     }
   }
 
+  async function handleDelete() {
+    setDeleteError("");
+
+    const ok = window.confirm("Delete this fundraiser? This cannot be undone.");
+    if (!ok) return;
+
+    setIsDeleting(true);
+    try {
+      await deleteFundraiser(id);
+      navigate("/");
+    } catch (err) {
+      setDeleteError(err.message || "Delete failed.");
+    } finally {
+      setIsDeleting(false);
+    }
+  }
+
   if (isLoading) return <p>Loading fundraiser...</p>;
   if (error) return <p>{error.message}</p>;
 
-  const isOwner = user && fundraiser.owner === user.id;
+const ownerId = Number(fundraiser.owner);
+const ownerUsername = fundraiser.owner_username ? String(fundraiser.owner_username) : null;
+
+const userId = user?.id !== undefined && user?.id !== null ? Number(user.id) : null;
+const username = user?.username ? String(user.username) : null;
+
+const isOwner =
+  token &&
+  user &&
+  user.username &&
+  fundraiser.owner_username &&
+  user.username === fundraiser.owner_username;
+
+
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
       <h1>{fundraiser.title}</h1>
+
+      <p>
+        <strong>Owner:</strong>{" "}
+        {ownerUsername || `User #${ownerId}`}
+      </p>
 
       <p>
         <strong>Created:</strong>{" "}
@@ -67,7 +106,8 @@ function FundraiserPage() {
       </p>
 
       <p>
-        <strong>Status:</strong> {fundraiser.is_open ? "Open for pledges" : "Closed"}
+        <strong>Status:</strong>{" "}
+        {fundraiser.is_open ? "Open for pledges" : "Closed"}
       </p>
 
       <img
@@ -82,9 +122,27 @@ function FundraiserPage() {
         <strong>Goal:</strong> ${fundraiser.goal}
       </p>
 
-      {isOwner && (
-        <div style={{ marginTop: 16 }}>
-          <Link to={`/fundraisers/${fundraiser.id}/edit`}>Edit fundraiser</Link>
+      {/* Edit + Delete section (visible only if logged in AND owner) */}
+      {token && isOwner && (
+  <div style={{ marginTop: 16, display: "flex", gap: 12 }}>
+    <Link to={`/fundraisers/${fundraiser.id}/edit`}>Edit fundraiser</Link>
+
+    <button onClick={handleDelete} disabled={isDeleting}>
+      {isDeleting ? "Deleting..." : "Delete fundraiser"}
+    </button>
+  </div>
+)}
+
+      {deleteError && (
+        <div
+          style={{
+            marginTop: 12,
+            background: "#ffe5e5",
+            padding: 12,
+            border: "1px solid #ffb3b3",
+          }}
+        >
+          {deleteError}
         </div>
       )}
 
@@ -96,8 +154,9 @@ function FundraiserPage() {
         <ul>
           {fundraiser.pledges.map((pledge) => (
             <li key={pledge.id}>
-              ${pledge.amount} from {pledge.anonymous ? "Anonymous" : pledge.supporter}
-              {pledge.comment ? <p>💬 {pledge.comment}</p> : null}
+              ${pledge.amount} from{" "}
+              {pledge.anonymous ? "Anonymous" : pledge.supporter_username}
+              {pledge.payload && <p>💬 {pledge.payload}</p>}
             </li>
           ))}
         </ul>
@@ -119,12 +178,26 @@ function FundraiserPage() {
           <h3>Make a pledge</h3>
 
           {pledgeError && (
-            <div style={{ background: "#ffe5e5", padding: 12, border: "1px solid #ffb3b3" }}>
+            <div
+              style={{
+                background: "#ffe5e5",
+                padding: 12,
+                border: "1px solid #ffb3b3",
+              }}
+            >
               {pledgeError}
             </div>
           )}
 
-          <form onSubmit={handlePledgeSubmit} style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 520 }}>
+          <form
+            onSubmit={handlePledgeSubmit}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              maxWidth: 520,
+            }}
+          >
             <label>
               Amount
               <input
@@ -165,3 +238,5 @@ function FundraiserPage() {
 }
 
 export default FundraiserPage;
+
+
