@@ -127,5 +127,10 @@ PawFund is designed for:
 ### 💬 Fundraiser with Pledges
 ![Fundraiser With Pledges](./screenshots/fundraiser-with-pledges.png)
 
+### Custom 404 Page
+![Custom 404 Page](./screenshots/404.png)
+
+
+
 
 
