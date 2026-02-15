@@ -130,7 +130,7 @@ PawFund is designed for:
 ### Custom 404 Page
 ![Custom 404 Page](src/screenshots/404.png)
 
-### Fundraiser page view for inregistred user 
+### Fundraiser Page View for Unregistred User 
 ![Fundraiser page view for unregistred user](src/screenshots/pledge.png)
 
 
