@@ -110,25 +110,25 @@ PawFund is designed for:
 ## 📸 Screenshots
 
 ### 🏠 Homepage
-![Homepage](.src/screenshots/homepage.png)
+![Homepage](src/screenshots/homepage.png)
 
 
 
 ### ➕ Fundraiser Creation Page
-![Create Page](.src/screenshots/create-page.png)
+![Create Page](src/screenshots/create-page.png)
 
 
 
 ### 📝 Fundraiser Creation Form
-![Create Form](.src/screenshots/create-page.png)
+![Create Form](src/screenshots/create-page.png)
 
 
 
 ### 💬 Fundraiser with Pledges
-![Fundraiser With Pledges](.src/screenshots/fundraiser-with-pledges.png)
+![Fundraiser With Pledges](src/screenshots/fundraiser-with-pledges.png)
 
 ### Custom 404 Page
-![Custom 404 Page](.src/screenshots/404.png)
+![Custom 404 Page](src/screenshots/404.png)
 
 
 
