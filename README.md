@@ -1,118 +1,131 @@
-🐾 PawFund
+# 🐾 **PawFund**
 
-PawFund is a crowdfunding platform designed to help animals receive urgent care when their owners are facing crisis.
-Users can create fundraisers, pledge support, and track progress toward funding goals.
+**PawFund is a crowdfunding platform designed to help animals receive urgent care when their owners are facing crisis.**
+**Users can create fundraisers, pledge support, and track progress toward funding goals.**
 
-🌍 Live Project
+# 🌍 Live Project
 
-Frontend:
+## Frontend:
 👉 https://your-frontend-url.com
 
-Backend API:
+## Backend API:
 👉 https://shecodes-production-app-a88e0902e533.herokuapp.com/
 
-🎯 Target Audience
+## 🎯 Target Audience
 
 PawFund is designed for:
 
-Pet owners facing financial hardship
+- Pet owners facing financial hardship
 
-Animal rescue organisations
+- Animal rescue organisations
 
-Supporters who want to help animals in need
+- Supporters who want to help animals in need
 
-🚀 Features
-👤 User Accounts
+## 🚀 Features
 
-Register
+### 👤 User Accounts
 
-Log in
+- Register
 
-Token-based authentication
+- Log in
 
-Owner-only edit/delete permissions
+- Token-based authentication
 
-📢 Fundraisers
+- Owner-only edit/delete permissions
 
-Each fundraiser includes:
+## 📢 Fundraisers
 
-Title
+### Each fundraiser includes:
 
-Owner
+- Title
 
-Description
+- Owner
 
-Image
+- Description
 
-Target amount
+- Image
 
-Open / Closed status
+- Target amount
 
-Date created
+- Open / Closed status
 
-Total pledged tracker
+- Date created
 
-💸 Pledges
+- Total pledged tracker
 
-Each pledge includes:
+## 💸 Pledges
 
-Amount
+### Each pledge includes:
 
-Supporter
+- Amount
 
-Anonymous option
+- Supporter
 
-Optional comment
+- Anonymous option
 
-🔐 Permissions
+- Optional comment
 
-Only the owner can edit/delete a fundraiser
+## 🔐 Permissions
 
-Only authenticated users can create fundraisers
+- Only the owner can edit/delete a fundraiser
 
-Only authenticated users can pledge
+- Only authenticated users can create fundraisers
 
-🎨 UI / UX
+- Only authenticated users can pledge
 
-Responsive design
+## 🎨 UI / UX
 
-Hero section with animated CTA
+- Responsive design
 
-Progress bar tracker
+- Hero section with animated CTA
 
-Mobile hamburger menu
+- Progress bar tracker
 
-Custom 404 page 
+- Mobile hamburger menu
 
-🛠️ Tech Stack
+- Custom 404 page 
 
-Frontend:
+## 🛠️ Tech Stack
 
-React
+### Frontend:
 
-React Router
+- React
 
-Vite
+- React Router
 
-CSS (custom styling)
+- Vite
 
-Backend:
+- CSS (custom styling)
 
-Django
+### Backend:
 
-Django Rest Framework
+- Django
 
-Token Authentication
+- Django Rest Framework
 
-Heroku deployment
+- Token Authentication
 
-📸 Screenshots
-🏠 Homepage
+- Heroku deployment
 
-➕ Fundraiser Creation Page
+## 📸 Screenshots
 
-📝 Fundraiser Creation Form
+### 🏠 Homepage
+![Homepage](./screenshots/homepage.png)
 
-💬 Fundraiser with Pledges
+
+
+### ➕ Fundraiser Creation Page
+![Create Page](./screenshots/create-page.png)
+
+
+
+### 📝 Fundraiser Creation Form
+![Create Form](./screenshots/create-page.png)
+
+
+
+### 💬 Fundraiser with Pledges
+![Fundraiser With Pledges](./screenshots/fundraiser-with-pledges.png)
+
 
 
