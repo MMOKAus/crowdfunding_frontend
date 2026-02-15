@@ -114,11 +114,6 @@ PawFund is designed for:
 
 
 
-### ➕ Fundraiser Creation Page
-![Create Page](src/screenshots/create-page.png)
-
-
-
 ### 📝 Fundraiser Creation Form
 ![Create Form](src/screenshots/create-page.png)
 
@@ -127,8 +122,10 @@ PawFund is designed for:
 ### 💬 Fundraiser with Pledges
 ![Fundraiser With Pledges](src/screenshots/fundraiser-with-pledges.png)
 
+
 ### Custom 404 Page
 ![Custom 404 Page](src/screenshots/404.png)
+
 
 ### Fundraiser Page View for Unregistered User 
 ![Fundraiser page view for unregistred user](src/screenshots/pledge.png)
